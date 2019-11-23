@@ -1,16 +1,15 @@
-const express = require("express");
-const router = express.Router();
+const shared = require("../shared/index");
+const key = process.env.API_KEY;
 
-const isProd = require("../shared/index")["isProd"];
-
-router.use((req, res) => {
-  const data = {
-    welcome: `This has been fetched from the express server via axios, using the /api endpoint.${
-      !isProd ? " You can find me at /src/express/api.js." : ""
-    }`
-  };
-
-  res.status(200).send(data);
-});
-
-module.exports = router;
+module.exports = (req, res) => {
+  const { name, maxLength } = shared.input;
+  var value = req.query[name];
+  value = shared.sanitize(value);
+  !value
+    ? res.status(400).send(`missing ${name}.`)
+    : value.length > maxLength
+    ? res.status(400).send(`${name} is too long.`)
+    : (() => {
+        console.log(value);
+      })();
+};

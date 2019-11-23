@@ -1,6 +1,8 @@
 const port = process.env.PORT || 5000;
-const path = require("./path");
+
 const log = require("./log");
+const path = require("./path");
+const sanitize = require("./sanitize");
 
 module.exports = {
   isProd: process.env.NODE_ENV === "production",
@@ -8,8 +10,14 @@ module.exports = {
     server: port,
     client: port + 1
   },
-  path: path,
-  log: log,
   endpoint: "/api",
-  name: "[app name]"
+  name: "lighthour",
+  input: {
+    name: "search",
+    maxLength: 255,
+    placeholder: "Where are you chasing?"
+  },
+  log,
+  path,
+  sanitize
 };

@@ -34,5 +34,5 @@ const endpoint = shared["endpoint"];
 const api = require("./api");
 const ssr = require("./ssr/index");
 
-app.use(endpoint, api);
+app.get(endpoint, api);
 app.use(ssr);

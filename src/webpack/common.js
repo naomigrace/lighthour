@@ -40,6 +40,9 @@ module.exports = wp_isProd => {
         }
       }
     },
+    externals: {
+      jsdom: "jsdom"
+    },
     module: {
       rules: [
         {
