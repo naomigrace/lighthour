@@ -1,0 +1,85 @@
+{
+  "name": "ssr_boilerplate",
+  "version": "1.0.0",
+  "description": "Express server serving a react client via webpack middleware.",
+  "main": "/src/express/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wp-dev": "cd src/webpack && webpack-dev-server --open --config dev.js",
+    "server": "nodemon src/express/index.js",
+    "dev": "concurrently \"npm run server\" \"npm run wp-dev\"",
+    "build": "cd src/webpack && webpack --config prod.js",
+    "start": "node src/express/index.js",
+    "demo": "npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nameer-rizvi/ssr_boilerplate.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "react",
+    "redux",
+    "webpack",
+    "babel",
+    "ssr"
+  ],
+  "author": "Nameer Rizvi <rizvinameer@gmail.com> (https://github.com/nameer-rizvi)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nameer-rizvi/ssr_boilerplate/issues"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "homepage": "https://github.com/nameer-rizvi/ssr_boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "connected-react-router": "^6.5.2",
+    "css-loader": "^3.2.0",
+    "csv-loader": "^3.0.2",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2",
+    "papaparse": "^4.6.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-promise-middleware": "^6.1.1",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "styled-components": "^4.4.0",
+    "styled-icons": "^8.5.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1",
+    "webpack-merge": "^4.2.2",
+    "workbox-webpack-plugin": "^4.3.1",
+    "xml-loader": "^1.2.1"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "connect-history-api-fallback": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "history": "^4.10.1",
+    "path": "^0.12.7",
+    "webpack": "^4.41.0"
+  }
+}
