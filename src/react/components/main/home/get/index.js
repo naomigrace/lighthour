@@ -15,7 +15,15 @@ export function get(value, updateState, localState) {
 
     axios
       .get(path, payload)
-      .then(res => success(updateState, localState, name, value, res.data))
-      .catch(err => error(updateState, localState, err));
+      .then(res =>
+        delay(() => success(updateState, localState, name, value, res.data))
+      )
+      .catch(err => delay(() => error(updateState, localState, err)));
   }
+}
+
+function delay(fn) {
+  setTimeout(() => {
+    fn();
+  }, 500);
 }
