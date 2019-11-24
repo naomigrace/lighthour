@@ -10,32 +10,27 @@ import HomePage from "./main/home/index";
 import NotFound from "./main/404";
 import themes from "../styles/themes";
 import PageContainer from "../styles/PageContainer";
-import { Logo } from "../styles";
-
 
 const App = () => {
+  const [theme, setTheme] = useState(0);
 
-  const [theme, setTheme] = useState(0)
-  
-  const HomePageWithTheme = () => <HomePage setTheme={setTheme}/>
+  const HomePageWithTheme = () => <HomePage setTheme={setTheme} />;
 
-    return (
-      <ThemeProvider theme={themes[theme]}>
-        <GlobalStyles />
-        <ConnectedRouter history={history}>
-          <main>
-            <Logo />
-            <PageContainer>
-              <Switch>
-                <Route exact path={"/"} component={HomePageWithTheme} />
-                <Route component={NotFound} />
-              </Switch>
-            </PageContainer>
-          </main>
-        </ConnectedRouter>
-      </ThemeProvider>
-    );
-
-}
+  return (
+    <ThemeProvider theme={themes[theme]}>
+      <GlobalStyles />
+      <ConnectedRouter history={history}>
+        <main>
+          <PageContainer>
+            <Switch>
+              <Route exact path={"/"} component={HomePageWithTheme} />
+              <Route component={NotFound} />
+            </Switch>
+          </PageContainer>
+        </main>
+      </ConnectedRouter>
+    </ThemeProvider>
+  );
+};
 
 export default App;
