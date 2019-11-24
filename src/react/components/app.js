@@ -16,18 +16,18 @@ export default class App extends Component {
   render() {
     return (
       <ThemeProvider theme={themes[0]}>
-        <GlobalStyles/>
-          <ConnectedRouter history={history}>
-            <Logo/>
-            <main>
-              <PageContainer>
-                <Switch>
-                  <Route exact path={"/"} component={HomePage} />
-                  <Route component={NotFound} />
-                </Switch>
-              </PageContainer>
-            </main>
-          </ConnectedRouter>
+        <GlobalStyles />
+        <ConnectedRouter history={history}>
+          <main>
+            <Logo />
+            <PageContainer>
+              <Switch>
+                <Route exact path={"/"} component={HomePage} />
+                <Route component={NotFound} />
+              </Switch>
+            </PageContainer>
+          </main>
+        </ConnectedRouter>
       </ThemeProvider>
     );
   }
