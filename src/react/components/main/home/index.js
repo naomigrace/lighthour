@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Clock from "./clock";
 import Form from "./form";
 import { input } from "../../../../shared/index";
 import { get } from "./get/index";
@@ -22,9 +23,8 @@ export default class HomePage extends Component {
   }
 
   render() {
-    console.log(this.state);
     return this.state.page ? (
-      "results page"
+      <Clock state={this.state} />
     ) : (
       <Form updateState={this.updateState} state={this.state} />
     );
