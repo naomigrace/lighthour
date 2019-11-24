@@ -3,10 +3,10 @@ import { ClockBox } from "../../../styles/index";
 
 const which_date = (sunrise, sunset) => {};
 
-export default function Clock({ data, setTheme, updateState }) {
+export default function Clock({ data, setTheme, resetState }) {
   setTheme(1);
   if (data.astronomy.city) {
-    console.log(data);
+    // console.log(data);
     const city = data.astronomy && data.astronomy.city;
     let times = data.astronomy && data.astronomy.astronomy;
 
@@ -17,15 +17,13 @@ export default function Clock({ data, setTheme, updateState }) {
 
     const { sunrise, sunset } = times;
 
-    const onClick = () => (updateState({ page: 0 }), setTheme(0));
-
     return (
       <ClockBox
         title={"golden"}
         city={city}
         time={sunset}
         timeLeft={4}
-        onClick={onClick}
+        onClick={resetState}
       />
     );
   } else {
