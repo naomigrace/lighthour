@@ -19,13 +19,16 @@ export default class Form extends Component {
   }
 
   render() {
-    const { updateState, state } = this.props;
+    const { updateState } = this.props;
     const { name } = input;
+    var { state } = this.props;
+    state = state && state[localState];
+    const loading = state && state.loading;
     return (
       <SearchContainer onSubmit={this.handleSubmit}>
         <Input
           {...input}
-          value={(state[localState] && state[localState][name]) || ""}
+          value={(state && state[name]) || ""}
           onChange={e =>
             updateState({
               [localState]: {
@@ -36,7 +39,9 @@ export default class Form extends Component {
             })
           }
         />
-        <Button type="submit">{name.toUpperCase()}</Button>
+        <Button type="submit">
+          {loading ? "LOADING" : name.toUpperCase()}
+        </Button>
         <Shadow />
       </SearchContainer>
     );

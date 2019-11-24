@@ -14,10 +14,10 @@ export const Shadow = styled.div`
 
 export default styled.form`
   position: relative;
-  margin-top: 20px;
   min-width: 350px;
   display: flex;
   flex-wrap: nowrap;
+  height: 87px;
   box-shadow: ${props => props.theme["box-shadow"]};
   border-radius: ${props => props.theme["border-radius"]};
 `;
