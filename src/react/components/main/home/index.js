@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-
 import Form from "./form";
-
 import { input } from "../../../../shared/index";
+import { get } from "./get/index";
 
-import { get } from "./get";
-
-export default class App extends Component {
+export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.updateState = this.updateState.bind(this);
@@ -16,8 +13,8 @@ export default class App extends Component {
 
   componentDidMount() {
     const params = new URLSearchParams(window.location.search);
-    var value = params.get(input.name);
-    get(value, this.updateState);
+    const value = params.get(input.name);
+    get(value, this.updateState, "URL");
   }
 
   updateState(update) {
@@ -25,6 +22,11 @@ export default class App extends Component {
   }
 
   render() {
-    return <Form />;
+    console.log(this.state);
+    return this.state.page ? (
+      "results page"
+    ) : (
+      <Form updateState={this.updateState} state={this.state} />
+    );
   }
 }

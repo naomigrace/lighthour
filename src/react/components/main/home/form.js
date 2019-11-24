@@ -1,38 +1,37 @@
 import React, { Component } from "react";
-
 import { input } from "../../../../shared";
-import { get } from "./get";
+import { get } from "./get/index";
+
+const localState = "Form";
 
 export default class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { [input.name]: "" };
-    this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  updateState(update) {
-    this.setState({ ...this.state, ...update });
-  }
-
   handleSubmit(event) {
-    event.preventDefault();
-    var value = this.state[input.name];
-    get(value, this.updateState);
+    const { state, updateState } = this.props;
+    event && event.preventDefault();
+    const value = state[localState] && state[localState][input.name];
+    get(value, updateState, localState);
   }
 
   render() {
+    const { updateState, state } = this.props;
     const { name } = input;
     return (
       <form onSubmit={this.handleSubmit}>
         <input
           {...input}
-          value={this.state[name]}
+          value={(state[localState] && state[localState][name]) || ""}
           onChange={e =>
-            this.updateState({
-              [name]: e.target.value,
-              loading: null,
-              error: null
+            updateState({
+              [localState]: {
+                [name]: e.target.value,
+                loading: null,
+                error: null
+              }
             })
           }
         />
