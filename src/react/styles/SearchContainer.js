@@ -12,14 +12,10 @@ export const shadow = styled.div`
     z-index: 0;
 `
 
-export default styled.div`
+export default styled.form`
     position: relative;
     margin-top: 20px;
     min-width: 350px;
     display: flex;
     flex-wrap: nowrap;
-
-    form {
-        display: flex;
-    }
 `
