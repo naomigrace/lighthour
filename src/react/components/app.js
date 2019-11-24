@@ -9,21 +9,23 @@ import GlobalStyles from "../styles/GlobalStyles"
 import HomePage from "./main/home/index"
 import NotFound from "./main/404"
 import themes from "../styles/themes";
+import PageContainer from "../styles/PageContainer";
 
 export default class App extends Component {
   render() {
     return (
       <ThemeProvider theme={themes[0]}>
-        <GlobalStyles>
+        <GlobalStyles/>
           <ConnectedRouter history={history}>
             <main>
-              <Switch>
-                <Route exact path={"/"} component={HomePage} />
-                <Route component={NotFound} />
-              </Switch>
+              <PageContainer>
+                <Switch>
+                  <Route exact path={"/"} component={HomePage} />
+                  <Route component={NotFound} />
+                </Switch>
+              </PageContainer>
             </main>
           </ConnectedRouter>
-        </GlobalStyles>
       </ThemeProvider>
     );
   }

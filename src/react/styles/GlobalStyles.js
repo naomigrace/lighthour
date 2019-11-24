@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export default createGlobalStyle`
-
+const GlobalStyle = createGlobalStyle`
     html, body {
         height: 100%;
     }
@@ -12,3 +11,5 @@ export default createGlobalStyle`
         background-repeat: no-repeat;
     }
 `
+
+export default GlobalStyle

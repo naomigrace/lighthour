@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import { input } from "../../../../shared";
 import { get } from "./get";
+import { Input, Button, SearchContainer } from "../../../styles";
 
 export default class Form extends Component {
   constructor(props) {
@@ -24,20 +25,22 @@ export default class Form extends Component {
   render() {
     const { name } = input;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          {...input}
-          value={this.state[name]}
-          onChange={e =>
-            this.updateState({
-              [name]: e.target.value,
-              loading: null,
-              error: null
-            })
-          }
-        />
-        <input type="submit" value={name} />
-      </form>
+      <SearchContainer>
+        <form onSubmit={this.handleSubmit}>
+          <Input
+            {...input}
+            value={this.state[name]}
+            onChange={e =>
+              this.updateState({
+                [name]: e.target.value,
+                loading: null,
+                error: null
+              })
+            }
+          />
+          <Button type="submit" value={name}>SEARCH</Button>
+        </form>
+      </SearchContainer>
     );
   }
 }
