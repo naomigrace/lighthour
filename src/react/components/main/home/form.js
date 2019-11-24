@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { sanitize, input } from "../../../../../shared";
+import { input } from "../../../../shared";
 import { get } from "./get";
 
 export default class Form extends Component {
@@ -17,21 +17,16 @@ export default class Form extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    var value = this.state[input.name];
-    value = sanitize(value);
-    value && get(value, this.updateState);
+    var value = this.state[name];
+    get(value, this.updateState);
   }
 
   render() {
-    const { name, maxLength, placeholder } = input;
+    const { name } = input;
     return (
       <form onSubmit={this.handleSubmit}>
         <input
-          type="text"
-          autoComplete="off"
-          name={name}
-          maxLength={maxLength}
-          placeholder={placeholder}
+          {...input}
           value={this.state[name]}
           onChange={e =>
             this.updateState({

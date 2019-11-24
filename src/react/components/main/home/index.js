@@ -1,28 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
 
 import Form from "./form/index";
 
-import { sanitize, input } from "../../../../shared/index";
+import { input } from "../../../../shared/index";
 
-export default function HomePage() {
-  var { name } = input;
-  const params = new URLSearchParams(window.location.search);
-  var name = params.get(name);
-  name = sanitize(name);
-  console.log(name);
-  return <Form />;
+import { get } from "./get";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.updateState = this.updateState.bind(this);
+  }
+
+  state = {};
+
+  componentDidMount() {
+    const params = new URLSearchParams(window.location.search);
+    var value = params.get(input.name);
+    get(value, this.updateState);
+  }
+
+  updateState(update) {
+    this.setState({ ...this.state, ...update });
+  }
+
+  render() {
+    console.log(this.state);
+    return <Form />;
+  }
 }
-
-// export function getQuery(q) {
-//   const params = new URLSearchParams(window.location.search);
-//   const get = params.get(q);
-//   const sanitized = sanitize({ val: get });
-//   return sanitized
-//     ? sanitized
-//     : sanitize({ val: window.location.hash })
-//     ? sanitize({ val: window.location.hash })
-//     : null;
-// }
-
-// * decodeURIcomponent not required
-// as decoding is part of sanitized().
