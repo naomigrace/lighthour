@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Form from "./form/index";
+import Form from "./form";
 
 import { input } from "../../../../shared/index";
 
@@ -25,7 +25,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return <Form />;
   }
 }

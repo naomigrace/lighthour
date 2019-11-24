@@ -17,7 +17,7 @@ export default class Form extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    var value = this.state[name];
+    var value = this.state[input.name];
     get(value, this.updateState);
   }
 

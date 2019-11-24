@@ -21,6 +21,3 @@ function api() {
     ? `${origin.replace(client, server)}${endpoint}`
     : endpoint;
 }
-
-// value = sanitize(value);
-//     value && value.length < maxLength &&
