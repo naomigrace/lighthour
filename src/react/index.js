@@ -9,6 +9,8 @@ import App from "./components/app";
 
 import * as serviceWorker from "./serviceWorker";
 
+import "./style.scss";
+
 const id = "root";
 const element = document.createElement("div");
 
