@@ -1,8 +1,10 @@
 import React from "react";
+import { ClockBox } from "../../../styles/index"
 
 const which_date = (sunrise, sunset) => {};
 
-export default function Clock({ data }) {
+export default function Clock({ data, setTheme }) {
+  setTheme(1)
   if (data.astronomy.city) {
     console.log(data);
     const city = data.astronomy && data.astronomy.city;
@@ -16,11 +18,12 @@ export default function Clock({ data }) {
     const { sunrise, sunset } = times;
 
     return (
-      <div>
-        {city}
-        {sunrise}
-        {sunset}
-      </div>
+      <ClockBox
+        title={'golden'}
+        city={city}
+        time={sunset}
+        timeLeft={4}
+      />
     );
   } else {
     return "oops!";

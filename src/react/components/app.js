@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import { ConnectedRouter } from "connected-react-router";
 
@@ -12,17 +12,22 @@ import themes from "../styles/themes";
 import PageContainer from "../styles/PageContainer";
 import { Logo } from "../styles";
 
-export default class App extends Component {
-  render() {
+
+const App = () => {
+
+  const [theme, setTheme] = useState(0)
+  
+  const HomePageWithTheme = () => <HomePage setTheme={setTheme}/>
+
     return (
-      <ThemeProvider theme={themes[0]}>
+      <ThemeProvider theme={themes[theme]}>
         <GlobalStyles />
         <ConnectedRouter history={history}>
           <main>
             <Logo />
             <PageContainer>
               <Switch>
-                <Route exact path={"/"} component={HomePage} />
+                <Route exact path={"/"} component={HomePageWithTheme} />
                 <Route component={NotFound} />
               </Switch>
             </PageContainer>
@@ -30,5 +35,7 @@ export default class App extends Component {
         </ConnectedRouter>
       </ThemeProvider>
     );
-  }
+
 }
+
+export default App;

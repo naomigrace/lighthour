@@ -30,7 +30,7 @@ export default class HomePage extends Component {
     return this.state[localState] && this.state[localState].loading ? (
       <Loader />
     ) : this.state.page ? (
-      <Clock {...this.state} />
+      <Clock {...this.state} setTheme={this.props.setTheme} />
     ) : (
       <Form updateState={this.updateState} state={this.state} />
     );

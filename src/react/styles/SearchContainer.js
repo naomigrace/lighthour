@@ -9,7 +9,7 @@ export const Shadow = styled.div`
   position: absolute;
   left: -50px;
   top: 50px;
-  z-index: 0;
+  z-index: -1;
 `;
 
 export default styled.form`
