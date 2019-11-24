@@ -1,5 +1,6 @@
 const port = process.env.PORT || 5000;
 
+const input = require("./input");
 const log = require("./log");
 const path = require("./path");
 const sanitize = require("./sanitize");
@@ -12,13 +13,7 @@ module.exports = {
   },
   endpoint: "/api",
   name: "lighthour",
-  input: {
-    type: "text",
-    autoComplete: "off",
-    name: "search",
-    maxLength: 255,
-    placeholder: "Where are you chasing?"
-  },
+  input,
   log,
   path,
   sanitize

@@ -7,7 +7,8 @@ export default styled.button`
   padding: 30px;
   margin-left: -4px;
   font-size: 1.2rem;
-  border-radius: 0 ${props => props.theme['border-radius']} ${props => props.theme['border-radius']} 0;
+  border-radius: 0 ${props => props.theme["border-radius"]}
+    ${props => props.theme["border-radius"]} 0;
   font-weight: bold;
 
   &:hover {
