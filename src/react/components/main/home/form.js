@@ -37,7 +37,7 @@ export default class Form extends Component {
           }
         />
         <Button type="submit">{name.toUpperCase()}</Button>
-        <Shadow/>
+        <Shadow />
       </SearchContainer>
     );
   }
