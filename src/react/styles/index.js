@@ -1,9 +1,12 @@
 import Button from "./Button"
 import Input from "./Input"
-import SearchContainer from "./SearchContainer"
+import Logo from "./Logo"
+import SearchContainer, { Shadow } from "./SearchContainer"
 
 export {
     Button,
     Input,
-    SearchContainer
+    Logo,
+    SearchContainer,
+    Shadow
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const shadow = styled.div`
+export const Shadow = styled.div`
     background: ${props => props.theme.color};
     border-radius: ${props => props.theme['border-radius']};
     opacity: 0.4;
@@ -18,4 +18,6 @@ export default styled.form`
     min-width: 350px;
     display: flex;
     flex-wrap: nowrap;
+    box-shadow: ${props => props.theme['box-shadow']};
+    border-radius: ${props => props.theme['border-radius']};
 `

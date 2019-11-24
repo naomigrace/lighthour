@@ -10,6 +10,7 @@ import HomePage from "./main/home/index"
 import NotFound from "./main/404"
 import themes from "../styles/themes";
 import PageContainer from "../styles/PageContainer";
+import { Logo } from "../styles";
 
 export default class App extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class App extends Component {
       <ThemeProvider theme={themes[0]}>
         <GlobalStyles/>
           <ConnectedRouter history={history}>
+            <Logo/>
             <main>
               <PageContainer>
                 <Switch>

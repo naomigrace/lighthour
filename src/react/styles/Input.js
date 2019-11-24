@@ -5,13 +5,12 @@ export default styled.input`
     background: white;
     border: 2px solid white;
     padding: 30px;
+    color: ${props => props.theme.color};
     border-top-left-radius: ${props => props.theme['border-radius']};
     border-bottom-left-radius: ${props => props.theme['border-radius']};
     font-size: 1.2rem;
     margin-right: none;
     width: 60%;
-    box-shadow: 0 2px 4px 0rgba(0,0,0,0.14);
-    color: ${props => props.theme.color};
     font-weight: bold;
 
     &::placeholder {
@@ -21,9 +20,9 @@ export default styled.input`
 
     &:active,&:focus{
         outline: none !important;
-        border: 2px solid #79B0F459;
+        border: 2px solid ${props => props.theme.color};
     }
-    
+
     &:active::placeholder,&:focus::placeholder {
         color: white;
     }

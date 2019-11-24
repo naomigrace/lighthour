@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { input } from "../../../../shared";
 import { get } from "./get/index";
-import { SearchContainer, Input, Button } from "../../../styles";
+import { SearchContainer, Input, Button, Shadow } from "../../../styles";
 
 const localState = "Form";
 
@@ -36,7 +36,8 @@ export default class Form extends Component {
             })
           }
         />
-        <Button type="submit" value={name} />
+        <Button type="submit">{name.toUpperCase()}</Button>
+        <Shadow/>
       </SearchContainer>
     );
   }
