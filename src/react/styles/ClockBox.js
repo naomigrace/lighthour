@@ -65,17 +65,20 @@ const Shadow = styled.div`
   min-height: 500px;
 `;
 
+const backColor = "white";
+
 const Back = styled.div`
   a {
     position: absolute;
     right: 0;
     top: -30px;
     font-family: sans-serif;
-    color: white;
+    color: ${backColor};
     text-decoration: none;
     font-weight: bold;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
     &:hover {
-      text-decoration: underline;
+      border-bottom: 2px solid ${backColor};
     }
   }
 `;

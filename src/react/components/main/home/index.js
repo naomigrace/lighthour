@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Loader from "./loading";
 import Clock from "./clock";
 import Form from "./form";
@@ -7,10 +8,11 @@ import { get } from "./get/index";
 
 const localState = "URL";
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
     this.updateState = this.updateState.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   state = {};
@@ -21,8 +23,23 @@ export default class HomePage extends Component {
     get(value, this.updateState, localState);
   }
 
+  componentDidUpdate(prevProps) {
+    const {
+      location: { pathname, search, hash }
+    } = this.props;
+    pathname === "/" &&
+      prevProps.location.search &&
+      !search &&
+      this.resetState();
+  }
+
   updateState(update) {
     this.setState({ ...this.state, ...update });
+  }
+
+  resetState() {
+    this.updateState({ page: 0 });
+    this.props.setTheme(0);
   }
 
   render() {
@@ -32,11 +49,19 @@ export default class HomePage extends Component {
     ) : this.state.page ? (
       <Clock
         {...this.state}
-        updateState={this.updateState}
         setTheme={this.props.setTheme}
+        resetState={this.resetState}
       />
     ) : (
       <Form updateState={this.updateState} state={this.state} />
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    location: state.router.location
+  };
+}
+
+export default connect(mapStateToProps)(HomePage);

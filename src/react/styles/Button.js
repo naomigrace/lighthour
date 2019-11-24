@@ -14,6 +14,7 @@ export default styled.button`
 
   &:hover {
     background-color: darken(#79b0f4, 0.5);
+    cursor: pointer;
   }
 
   &:active,
