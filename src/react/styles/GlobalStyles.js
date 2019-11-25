@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
     font-family: 'Source Sans Pro', sans-serif;
+    color: ${props => props.theme.color};
   }
 
   body {

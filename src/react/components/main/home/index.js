@@ -5,6 +5,7 @@ import Clock from "./clock/index";
 import Form from "./form";
 import { input } from "../../../../shared/index";
 import { get } from "./get/index";
+import { Header } from "../../../styles"
 
 const localState = "URL";
 
@@ -43,7 +44,6 @@ class HomePage extends Component {
   }
 
   render() {
-    const { page } = this.state;
     return this.state[localState] && this.state[localState].loading ? (
       <Loader />
     ) : this.state.page ? (
@@ -53,7 +53,10 @@ class HomePage extends Component {
         resetState={this.resetState}
       />
     ) : (
+      <>
+      <Header>when's golden hour?</Header>
       <Form updateState={this.updateState} state={this.state} />
+      </>
     );
   }
 }

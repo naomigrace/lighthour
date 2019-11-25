@@ -72,7 +72,7 @@ const Shadow = styled.div`
   left: -50px;
   top: 50px;
   z-index: -1;
-  min-width: ${props => props.mobile ? '300px' : '400px'};
+  min-width: ${props => props.mobile ? '300px' : '350px'};
   min-height: ${props => props.mobile ? '500px' : '600px'};
 `;
 

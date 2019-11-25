@@ -38,7 +38,7 @@ const Form = (props) => {
 
   return (
     <SearchContainer onSubmit={handleSubmit}>
-      <TimeLabel />
+      <TimeLabel searchbox={true}/>
       <Input
         {...input}
         placeholder={isMobile ? "Where ya chasin?" : input.placeholder}
