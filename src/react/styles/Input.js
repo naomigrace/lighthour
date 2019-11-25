@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten } from "polished"
 
 export default styled.input`
   z-index: 1;
@@ -15,14 +16,14 @@ export default styled.input`
   font-weight: bold;
 
   &::placeholder {
-    color: ${props => props.theme.color};
+    color: ${props => lighten(0.13, props.theme.color)};
     font-weight: bold;
   }
 
   &:active,
   &:focus {
     outline: none !important;
-    border: 2px solid #79b0f459;
+    border: 2px solid ${props => props.theme.color};
   }
 
   &:active::placeholder,

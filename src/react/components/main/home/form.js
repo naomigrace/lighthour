@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { input } from "../../../../shared";
 import { get } from "./get/index";
 import {
+  Alert,
   SearchContainer,
   Input,
   Button,
   Shadow,
-  TimeLabel
+  TimeLabel,
+  Spinner
 } from "../../../styles";
 
 const localState = "Form";
@@ -29,7 +31,11 @@ export default class Form extends Component {
     const { name } = input;
     var { state } = this.props;
     state = state && state[localState];
+
+    console.log(state)
     const loading = state && state.loading;
+    const error = state && state.error
+    const search_term = state && state.search
     return (
       <SearchContainer onSubmit={this.handleSubmit}>
         <TimeLabel />
@@ -47,8 +53,9 @@ export default class Form extends Component {
           }
         />
         <Button type="submit">
-          {loading ? "LOADING" : name.toUpperCase()}
+          {loading ? <Spinner/> : name.toUpperCase()}
         </Button>
+        {error && <Alert>{`No location found for: ${search_term}`}</Alert>}
         <Shadow />
       </SearchContainer>
     );
