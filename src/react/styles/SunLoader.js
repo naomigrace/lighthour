@@ -9,9 +9,9 @@ export const SunLabel = styled.p`
     font-weight: bold;
     position: relative;
     text-align: center;
-    margin-bottom: -205px;
+    margin-bottom: -210px;
     z-index: 2;
-    font-family: sans-serif;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 20px;

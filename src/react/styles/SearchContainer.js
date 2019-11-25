@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Shadow = styled.div`
-  background: ${props => props.theme.color};
+  background: ${props => props.theme.shadow};
   border-radius: ${props => props.theme["border-radius"]};
   opacity: 0.4;
   min-width: 400px;

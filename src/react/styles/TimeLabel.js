@@ -4,12 +4,12 @@ import format from "date-fns/format";
 
 const Label = styled.p`
   position: absolute;
-  top: -47px;
+  top: -65px;
   width: 100%;
   text-align: center;
   color: #79b0f6;
-  font-family: sans-serif;
-  font-weight: 100;
+  font-weight: 300;
+  font-size: 20px;
 `;
 
 const TimeLabel = () => {

@@ -6,7 +6,6 @@ const Container = styled.div`
   margin-top: 4rem;
   box-shadow: ${props => props.theme["box-shadow"]};
   border-radius: ${props => props.theme["border-radius"]};
-  font-family: sans-serif;
   min-width: 350px;
   text-align: center;
   position: relative;
@@ -27,7 +26,7 @@ const BottomBox = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: SourceSansPro-Black, sans-serif;
+  font-weight: 900;
   font-size: 48px;
   color: #ffffff;
   line-height: 39px;
@@ -37,9 +36,11 @@ const Title = styled.h1`
 
 const City = styled.h2`
   font-size: 24px;
+  font-weight: 700;
   color: ${props => props.theme.color};
   text-align: center;
   text-transform: uppercase;
+  max-width: 26ch;
 `;
 
 const Time = styled.h1`
@@ -56,14 +57,14 @@ const TimeLeft = styled.small`
 
 const Shadow = styled.div`
   opacity: 0.4;
-  background: ${props => props.theme.color};
+  background: ${props => props.theme.shadow};
   border-radius: ${props => props.theme["border-radius"]};
   position: absolute;
   left: -50px;
   top: 50px;
   z-index: -1;
-  min-width: 350px;
-  min-height: 560px;
+  min-width: 400px;
+  min-height: 600px;
 `;
 
 const backColor = "white";
@@ -73,7 +74,7 @@ const Back = styled.div`
     position: absolute;
     right: 0;
     top: -30px;
-    font-family: sans-serif;
+    font-weight: 700;
     color: ${backColor};
     text-decoration: none;
     font-weight: bold;
