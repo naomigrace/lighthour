@@ -21,7 +21,7 @@ const TopBox = styled.div`
 `;
 const BottomBox = styled.div`
   margin-top: 0;
-  padding: 20px;
+  padding: 40px;
   background: #ffffff;
   border-radius: 0 0 26px 26px;
 `;
@@ -84,7 +84,7 @@ const Back = styled.div`
   }
 `;
 
-const ClockBox = ({ title, city, time, timeLeft, onClick }) => (
+const ClockBox = ({ title, citystate, time, timeLeft, onClick }) => (
   <>
     <Container>
       <Back>
@@ -102,7 +102,7 @@ const ClockBox = ({ title, city, time, timeLeft, onClick }) => (
         </Title>
       </TopBox>
       <BottomBox>
-        <City>In {city}</City>
+        <City>In {citystate}</City>
         <Time>{time}</Time>
         <TimeLeft>you've got {timeLeft} hours to go!</TimeLeft>
       </BottomBox>

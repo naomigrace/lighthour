@@ -51,6 +51,7 @@ export default function Clock({ data, setTheme, resetState }) {
   setTheme(1);
   if (data && data.astronomy && data.astronomy.city) {
     const city = data.astronomy && data.astronomy.city;
+    const state = data.astronomy && data.astronomy.state;
     let times = data.astronomy && data.astronomy.astronomy;
 
     // if astronomy is an array, take the first obj
@@ -63,7 +64,7 @@ export default function Clock({ data, setTheme, resetState }) {
     return (
       <ClockBox
         title={"golden"}
-        city={city}
+        citystate={`${city}, ${state}`}
         time={sunset}
         timeLeft={4}
         onClick={resetState}
