@@ -32,6 +32,7 @@ const Title = styled.h1`
   color: #ffffff;
   line-height: 39px;
   text-transform: uppercase;
+  line-height: 47px;
 `;
 
 const City = styled.h2`

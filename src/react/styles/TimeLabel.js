@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { format } from "date-fns";
+import format from "date-fns/format";
 
 const Label = styled.p`
   position: absolute;
@@ -12,8 +12,23 @@ const Label = styled.p`
   font-weight: 100;
 `;
 
-const time = format(new Date(), "hh:mm A");
+const TimeLabel = () => {
+  const [date, setDate] = useState(new Date());
 
-const TimeLabel = () => <Label>the time is now {time}</Label>;
+  useEffect(() => {
+    var timerID = setInterval(() => tick(), 1000);
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
+
+  function tick() {
+    setDate(new Date());
+  }
+
+  const time = date.toLocaleTimeString();
+
+  return <Label>the time is now {time}</Label>;
+};
 
 export default TimeLabel;
