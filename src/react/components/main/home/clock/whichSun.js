@@ -10,22 +10,21 @@ export const whichSun = ({ sunrise, sunset, timezone }) => {
         return currentT.hour < sunriseT.hour ||
           (currentT.hour === sunriseT.hour && currentT.minute < sunriseT.minute)
           ? {
+              render: "sunrise",
               diff: sunriseT.hour - currentT.hour,
-              time: sunrise,
-              render: "sunrise"
+              ...sunriseT
             }
           : currentT.hour < sunsetT.hour ||
             (currentT.hour === sunsetT.hour && currentT.minute < sunsetT.minute)
           ? {
+              render: "sunset",
               diff: sunsetT.hour - currentT.hour,
-              time: sunset,
-              render: "sunset"
+              ...sunsetT
             }
           : {
-              diff: sunriseT.hour - currentT.hour + 24,
-              time: sunrise,
               render: "sunrise",
-              isTomorrow: true
+              diff: sunriseT.hour - currentT.hour + 24,
+              ...sunriseT
             };
       })()
     : {};

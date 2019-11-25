@@ -16,12 +16,16 @@ export default function Clock({ data, setTheme, resetState }) {
 
         const sun = whichSun({ sunrise, sunset, timezone });
 
-        const { time, render, diff, isTomorrow } = sun;
+        const { minute, render, diff } = sun;
+
+        var hour = sun.hour % 12;
+        minute > 30 && (hour = hour + 1);
+        var meridiem = sun.hour > 12 ? "PM" : "AM";
 
         return (
           <ClockBox
             citystate={`${city}, ${state}`}
-            time={time || "00:00 AM"}
+            hour={`${hour} ${meridiem}` || "12 AM"}
             what={render || ""}
             diff={diff || 0}
             onClick={resetState}
