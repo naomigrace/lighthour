@@ -32,10 +32,9 @@ export default class Form extends Component {
     var { state } = this.props;
     state = state && state[localState];
 
-    console.log(state)
     const loading = state && state.loading;
-    const error = state && state.error
-    const search_term = state && state.search
+    const error = state && state.error;
+    const search_term = state && state.search;
     return (
       <SearchContainer onSubmit={this.handleSubmit}>
         <TimeLabel />
@@ -53,7 +52,7 @@ export default class Form extends Component {
           }
         />
         <Button type="submit">
-          {loading ? <Spinner/> : name.toUpperCase()}
+          {loading ? <Spinner /> : name.toUpperCase()}
         </Button>
         {error && <Alert>{`No location found for: ${search_term}`}</Alert>}
         <Shadow />

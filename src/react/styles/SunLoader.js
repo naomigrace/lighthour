@@ -5,18 +5,18 @@ import styled from "styled-components";
 // https://codepen.io/Benedikte/pen/bIuGr
 
 export const SunLabel = styled.p`
-    color: white;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
-    margin-bottom: -210px;
-    z-index: 2;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 20px;
-    font-style: italic;
-`
+  color: white;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  margin-bottom: -210px;
+  z-index: 2;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-style: italic;
+`;
 
 export const Sun = styled.circle`
 stroke-width:18;
@@ -76,7 +76,7 @@ stroke-dashoffset:2;
       transform: rotate(360deg);
   }
 }
-`
+`;
 
 export default styled.svg`
   width: 300px;

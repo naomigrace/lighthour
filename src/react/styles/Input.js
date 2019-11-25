@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lighten } from "polished"
+import { lighten } from "polished";
 
 export default styled.input`
   z-index: 1;

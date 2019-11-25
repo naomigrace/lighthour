@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import format from "date-fns/format";
 
 const Label = styled.p`
   position: absolute;
-  top: -65px;
+  top: -47px;
   width: 100%;
   text-align: center;
   color: #79b0f6;
-  font-weight: 300;
-  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 100;
 `;
 
 const TimeLabel = () => {

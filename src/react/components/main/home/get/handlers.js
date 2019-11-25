@@ -1,12 +1,10 @@
 import { history } from "../../../../redux/store";
 
-export function loading(props) {
-  const { updateState, localState, value } = props;
+export function loading({ updateState, localState, value }) {
   updateState({ [localState]: { loading: true, error: null, ...value } });
 }
 
-export function success(props) {
-  const { value, updateState, data, localState } = props;
+export function success({ value, updateState, data, localState }) {
   const query = new URLSearchParams(value).toString();
   history.push(`?${query}`);
   updateState({
@@ -16,7 +14,6 @@ export function success(props) {
   });
 }
 
-export function error(props) {
-  const { updateState, localState, err, value } = props;
+export function error({ updateState, localState, err, value }) {
   updateState({ [localState]: { loading: null, error: err, ...value } });
 }

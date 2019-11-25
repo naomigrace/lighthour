@@ -5,7 +5,7 @@ const midmorning = {
   "background-color": "#79B0F4",
   "box-shadow": "0 2px 4px 0 rgba(0,0,0,0.14)",
   "border-radius": "26px",
-  "shadow": "#00000047"
+  shadow: "#00000047"
 };
 
 const goldenhour = {
@@ -15,7 +15,7 @@ const goldenhour = {
   "background-color": "#FA957B",
   "box-shadow": "0 2px 4px 0 rgba(0,0,0,0.14)",
   "border-radius": "26px",
-  "shadow": "#00000047"
+  shadow: "#00000047"
 };
 
 export default [midmorning, goldenhour];

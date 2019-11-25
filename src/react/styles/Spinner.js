@@ -49,4 +49,4 @@ const StyledSpinner = styled.svg`
   }
 `;
 
-export default Spinner
+export default Spinner;
