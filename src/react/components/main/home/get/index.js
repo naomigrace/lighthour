@@ -9,16 +9,16 @@ export function get(value, updateState, localState) {
   if (value && value.length < maxLength) {
     const path = encodeURI(api());
 
-    const payload = { params: { [name]: sanitize(value) } };
+    value = { [name]: sanitize(value) };
 
-    loading(updateState, localState);
+    const props = { updateState, localState, value };
+
+    loading(props);
 
     axios
-      .get(path, payload)
-      .then(res =>
-        delay(() => success(updateState, localState, name, value, res.data))
-      )
-      .catch(err => delay(() => error(updateState, localState, err)));
+      .get(path, { params: value })
+      .then(res => delay(() => success({ ...props, name, data: res.data })))
+      .catch(err => delay(() => error({ ...props, err })));
   }
 }
 

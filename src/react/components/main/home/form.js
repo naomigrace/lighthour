@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { input } from "../../../../shared";
 import { get } from "./get/index";
-import { SearchContainer, Input, Button, Shadow } from "../../../styles";
+import {
+  SearchContainer,
+  Input,
+  Button,
+  Shadow,
+  TimeLabel
+} from "../../../styles";
 
 const localState = "Form";
 
@@ -26,6 +32,7 @@ export default class Form extends Component {
     const loading = state && state.loading;
     return (
       <SearchContainer onSubmit={this.handleSubmit}>
+        <TimeLabel />
         <Input
           {...input}
           value={(state && state[name]) || ""}

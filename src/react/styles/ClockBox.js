@@ -27,7 +27,7 @@ const BottomBox = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: SourceSansPro-Black;
+  font-family: SourceSansPro-Black, sans-serif;
   font-size: 48px;
   color: #ffffff;
   line-height: 39px;
