@@ -16,15 +16,13 @@ const TimeLabel = () => {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
-    var timerID = setInterval(() => tick(), 1000);
+    var timerID = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
     return function cleanup() {
       clearInterval(timerID);
     };
   });
-
-  function tick() {
-    setDate(new Date());
-  }
 
   const time = date.toLocaleTimeString();
 
