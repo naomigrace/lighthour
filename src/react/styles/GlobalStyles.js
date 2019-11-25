@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-image: ${props => props.theme["background-image"]};
     background-color: ${props => props.theme["background-color"]};
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     transition: all 2s linear;
 
   }

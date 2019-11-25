@@ -6,7 +6,7 @@ const Container = styled.div`
   margin-top: 4rem;
   box-shadow: ${props => props.theme["box-shadow"]};
   border-radius: ${props => props.theme["border-radius"]};
-  min-width: 350px;
+  min-width: ${props => props.mobile ? '300px' : '350px'};
   text-align: center;
   position: relative;
 `;
@@ -15,14 +15,22 @@ const TopBox = styled.div`
   background: ${props => props.theme.color};
   border-radius: ${props => props.theme["border-radius"]}
     ${props => props.theme["border-radius"]} 0 0;
-  padding: 20px;
+  padding: ${props => props.mobile ? '10px' : '20px'};
   margin-bottom: 0;
 `;
 const BottomBox = styled.div`
   margin-top: 0;
-  padding: 40px;
+  padding: ${props => props.mobile ? '30px' : '40px'};
   background: #ffffff;
   border-radius: 0 0 26px 26px;
+  ${props => props.mobile && `
+    h1 {
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+  `};
 `;
 
 const Title = styled.h1`
@@ -32,6 +40,7 @@ const Title = styled.h1`
   line-height: 39px;
   text-transform: uppercase;
   line-height: 47px;
+  ${props => props.mobile && 'margin: 20px 0'};
 `;
 
 const City = styled.h2`
@@ -63,8 +72,8 @@ const Shadow = styled.div`
   left: -50px;
   top: 50px;
   z-index: -1;
-  min-width: 400px;
-  min-height: 600px;
+  min-width: ${props => props.mobile ? '300px' : '400px'};
+  min-height: ${props => props.mobile ? '500px' : '600px'};
 `;
 
 const backColor = "white";
@@ -85,16 +94,16 @@ const Back = styled.div`
   }
 `;
 
-const ClockBox = ({ citystate, hour, what, diff, onClick }) => (
+const ClockBox = ({ citystate, hour, what, diff, onClick, mobile }) => (
   <>
-    <Container>
+    <Container mobile={mobile}>
       <Back>
         <Link to="/" onClick={onClick}>
           BACK
         </Link>
       </Back>
-      <TopBox>
-        <Title>
+      <TopBox mobile={mobile}>
+        <Title mobile={mobile}>
           THE NEXT
           <br />
           GOLDEN
@@ -102,14 +111,14 @@ const ClockBox = ({ citystate, hour, what, diff, onClick }) => (
           HOUR
         </Title>
       </TopBox>
-      <BottomBox>
+      <BottomBox mobile={mobile}>
         <City>In {citystate}</City>
         <Time>{hour}</Time>
         <TimeLeft>
           {what} is in {diff} hours!
         </TimeLeft>
       </BottomBox>
-      <Shadow />
+      <Shadow mobile={mobile}/>
     </Container>
   </>
 );

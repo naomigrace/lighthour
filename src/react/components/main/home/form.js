@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { input } from "../../../../shared";
 import { get } from "./get/index";
+import { Search } from "styled-icons/octicons/Search";
 import {
   Alert,
   SearchContainer,
@@ -13,50 +15,51 @@ import {
 
 const localState = "Form";
 
-export default class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    const { state, updateState } = this.props;
+const Form = (props) => {
+  const handleSubmit = event => {
+    const { state, updateState } = props;
     event && event.preventDefault();
     const value = state[localState] && state[localState][input.name];
     get(value, updateState, localState);
-  }
+  };
 
-  render() {
-    const { updateState } = this.props;
-    const { name } = input;
-    var { state } = this.props;
-    state = state && state[localState];
+  const { updateState } = props;
+  const { name } = input;
+  var { state } = props;
+  state = state && state[localState];
 
-    const loading = state && state.loading;
-    const error = state && state.error;
-    const search_term = state && state.search;
-    return (
-      <SearchContainer onSubmit={this.handleSubmit}>
-        <TimeLabel />
-        <Input
-          {...input}
-          value={(state && state[name]) || ""}
-          onChange={e =>
-            updateState({
-              [localState]: {
-                [name]: e.target.value,
-                loading: null,
-                error: null
-              }
-            })
-          }
-        />
-        <Button type="submit">
-          {loading ? <Spinner /> : name.toUpperCase()}
-        </Button>
-        {error && <Alert>{`No location found for: ${search_term}`}</Alert>}
-        <Shadow />
-      </SearchContainer>
-    );
-  }
-}
+  const loading = state && state.loading;
+  const error = state && state.error;
+  const search_term = state && state.search;
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 478px)"
+  });
+
+  return (
+    <SearchContainer onSubmit={handleSubmit}>
+      <TimeLabel />
+      <Input
+        {...input}
+        placeholder={isMobile ? "Where ya chasin?" : input.placeholder}
+        value={(state && state[name]) || ""}
+        onChange={e =>
+          updateState({
+            [localState]: {
+              [name]: e.target.value,
+              loading: null,
+              error: null
+            }
+          })
+        }
+      />
+      <Button type="submit" mobile={isMobile}>
+        {loading ? <Spinner /> : isMobile ? <Search style={{marginTop: '-5px'}}/> : name.toUpperCase()}
+      </Button>
+      {error && <Alert>{`No location found for: ${search_term}`}</Alert>}
+      <Shadow mobile={isMobile}/>
+    </SearchContainer>
+  );
+};
+
+export default Form;

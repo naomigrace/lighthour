@@ -5,5 +5,5 @@ export default styled.div`
   justify-content: center;
   flex-grow: 1;
   align-items: center;
-  padding-bottom: 100px;
+  padding: 0 20px 100px 20px;
 `;

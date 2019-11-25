@@ -1,9 +1,14 @@
 import React from "react";
 import { ClockBox } from "../../../../styles/index";
 import { whichSun } from "./whichSun";
+import { useMediaQuery } from "react-responsive";
 
 export default function Clock({ data, setTheme, resetState }) {
   setTheme(1);
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 478px)"
+  });
 
   return data && data.astronomy
     ? (() => {
@@ -29,6 +34,7 @@ export default function Clock({ data, setTheme, resetState }) {
             what={render || ""}
             diff={diff || 0}
             onClick={resetState}
+            mobile={isMobile}
           />
         );
       })()
