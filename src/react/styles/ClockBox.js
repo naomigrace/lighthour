@@ -85,7 +85,7 @@ const Back = styled.div`
   }
 `;
 
-const ClockBox = ({ title, citystate, time, timeLeft, onClick }) => (
+const ClockBox = ({ citystate, time, what, diff, onClick }) => (
   <>
     <Container>
       <Back>
@@ -97,7 +97,7 @@ const ClockBox = ({ title, citystate, time, timeLeft, onClick }) => (
         <Title>
           THE NEXT
           <br />
-          {title}
+          GOLDEN
           <br />
           HOUR
         </Title>
@@ -105,7 +105,9 @@ const ClockBox = ({ title, citystate, time, timeLeft, onClick }) => (
       <BottomBox>
         <City>In {citystate}</City>
         <Time>{time}</Time>
-        <TimeLeft>you've got {timeLeft} hours to go!</TimeLeft>
+        <TimeLeft>
+          {what} is in {diff} hours!
+        </TimeLeft>
       </BottomBox>
       <Shadow />
     </Container>

@@ -18,7 +18,7 @@ const TimeLabel = () => {
     var timerID = setInterval(() => {
       setDate(new Date());
     }, 1000);
-    return function cleanup() {
+    return () => {
       clearInterval(timerID);
     };
   });

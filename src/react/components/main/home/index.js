@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Loader from "./loading";
-import Clock from "./clock";
+import Clock from "./clock/index";
 import Form from "./form";
 import { input } from "../../../../shared/index";
 import { get } from "./get/index";
