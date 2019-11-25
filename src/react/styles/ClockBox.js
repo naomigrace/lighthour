@@ -63,7 +63,7 @@ const Shadow = styled.div`
   top: 50px;
   z-index: -1;
   min-width: 350px;
-  min-height: 500px;
+  min-height: 560px;
 `;
 
 const backColor = "white";
