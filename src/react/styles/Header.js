@@ -6,4 +6,5 @@ export default styled.h1`
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 300;
+    text-align: center;
 `

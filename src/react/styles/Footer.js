@@ -10,4 +10,8 @@ a {
     color: white;
     text-decoration: none;
 }
+
+p {
+    margin: 0;
+}
 `

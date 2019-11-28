@@ -13,7 +13,7 @@ export default function Clock({ data, setTheme, resetState }) {
   return data && data.astronomy
     ? (() => {
         const { city, state, timezone } = data.astronomy;
-        var { astronomy } = data.astronomy;
+        let { astronomy } = data.astronomy;
 
         Array.isArray(astronomy) && (astronomy = astronomy[0]);
 
@@ -23,14 +23,15 @@ export default function Clock({ data, setTheme, resetState }) {
 
         const { minute, render, diff } = sun;
 
-        var hour = sun.hour % 12;
-        minute > 30 && (hour = hour + 1);
-        var meridiem = sun.hour > 12 ? "PM" : "AM";
+        let hour = sun.hour % 12;
+        minute > 30 && (hour === hour + 1);
+        let meridiem = sun.hour > 12 ? "PM" : "AM";
 
         return (
           <ClockBox
             citystate={`${city}, ${state}`}
-            hour={`${hour} ${meridiem}` || "12 AM"}
+            sunset={`${hour}:${minute} ${meridiem}` || "12 AM"}
+            hour={`${render == "sunset" ? hour - 1 : hour + 1}:${minute} ${meridiem}` || "12 AM"}
             what={render || ""}
             diff={diff || 0}
             onClick={resetState}

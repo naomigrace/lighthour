@@ -14,6 +14,7 @@ export default styled.input`
   box-shadow: 0 2px 4px 0rgba (0, 0, 0, 0.14);
   color: ${props => props.theme.color};
   font-weight: bold;
+  -webkit-appearance: none;
 
   &::placeholder {
     color: ${props => lighten(0.13, props.theme.color)};

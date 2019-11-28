@@ -41,6 +41,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   line-height: 47px;
   ${props => props.mobile && 'margin: 20px 0'};
+  margin-bottom: 0.5rem;
 `;
 
 const City = styled.h2`
@@ -94,7 +95,7 @@ const Back = styled.div`
   }
 `;
 
-const ClockBox = ({ citystate, hour, what, diff, onClick, mobile }) => (
+const ClockBox = ({ citystate, hour, what, sunset, onClick, mobile }) => (
   <>
     <Container mobile={mobile}>
       <Back>
@@ -115,7 +116,7 @@ const ClockBox = ({ citystate, hour, what, diff, onClick, mobile }) => (
         <City>In {citystate}</City>
         <Time>{hour}</Time>
         <TimeLeft>
-          {what} is in {diff} hours!
+          {what} is at {sunset}!
         </TimeLeft>
       </BottomBox>
       <Shadow mobile={mobile}/>
