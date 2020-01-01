@@ -4,7 +4,9 @@ import styled from "styled-components";
 const Label = styled.p`
   display: inline-block;
   font-weight: 300;
-  ${props => props.searchbox && `
+  ${props =>
+    props.searchbox &&
+    `
     display: block;
     position: absolute;
     top: -47px;
@@ -14,7 +16,7 @@ const Label = styled.p`
   `}
 `;
 
-const TimeLabel = ({searchbox=false}) => {
+const TimeLabel = ({ searchbox = false }) => {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
@@ -28,7 +30,11 @@ const TimeLabel = ({searchbox=false}) => {
 
   const time = date.toLocaleTimeString();
 
-  return <Label searchbox={searchbox}>{searchbox ? `your local time is ${time}` : time}</Label>;
+  return (
+    <Label searchbox={searchbox}>
+      {searchbox ? `your local time is ${time}` : time}
+    </Label>
+  );
 };
 
 export default TimeLabel;

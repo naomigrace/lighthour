@@ -5,7 +5,7 @@ import Clock from "./clock/index";
 import Form from "./form";
 import { input } from "../../../../shared/index";
 import { get } from "./get/index";
-import { Header } from "../../../styles"
+import { Header } from "../../../styles";
 
 const localState = "URL";
 
@@ -26,7 +26,7 @@ class HomePage extends Component {
 
   componentDidUpdate(prevProps) {
     const {
-      location: { pathname, search, hash }
+      location: { pathname, search }
     } = this.props;
     pathname === "/" &&
       prevProps.location.search &&
@@ -54,8 +54,8 @@ class HomePage extends Component {
       />
     ) : (
       <>
-      <Header>when's golden hour?</Header>
-      <Form updateState={this.updateState} state={this.state} />
+        <Header>when&apos;s golden hour?</Header>
+        <Form updateState={this.updateState} state={this.state} />
       </>
     );
   }

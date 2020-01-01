@@ -19,24 +19,22 @@ const logStatus = status => {
 };
 
 export function register() {
-  !isLocalhost && isProd && inNavigator
-    ? window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("/service-worker.js")
-          .then(registration => {
-            logStatus("registered");
-          })
-          .catch(registrationError => {
-            logStatus("registration failed");
-          });
-      })
-    : isLocalhost
+  isLocalhost
     ? logStatus("not enabled for localhost")
     : !isProd
     ? logStatus("only enabled for production")
     : !inNavigator
     ? logStatus("not in navigator")
-    : logStatus("does not meet conditions for registration");
+    : window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(() => {
+            logStatus("registered");
+          })
+          .catch(() => {
+            logStatus("registration failed");
+          });
+      });
 }
 
 export function unregister() {

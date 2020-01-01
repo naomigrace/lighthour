@@ -4,7 +4,7 @@ export const Shadow = styled.div`
   background: ${props => props.theme.shadow};
   border-radius: ${props => props.theme["border-radius"]};
   opacity: 0.4;
-  min-width: ${props => props.mobile ? '280px' : '400px'};
+  min-width: ${props => (props.mobile ? "280px" : "400px")};
   height: 87px;
   position: absolute;
   left: -50px;

@@ -24,14 +24,18 @@ export default function Clock({ data, setTheme, resetState }) {
         const { minute, render, diff } = sun;
 
         let hour = sun.hour % 12;
-        minute > 30 && (hour === hour + 1);
+        minute > 30 && hour === hour + 1;
         let meridiem = sun.hour > 12 ? "PM" : "AM";
 
         return (
           <ClockBox
             citystate={`${city}, ${state}`}
             sunset={`${hour}:${minute} ${meridiem}` || "12 AM"}
-            hour={`${render == "sunset" ? hour - 1 : hour + 1}:${minute} ${meridiem}` || "12 AM"}
+            hour={
+              `${
+                render == "sunset" ? hour - 1 : hour + 1
+              }:${minute} ${meridiem}` || "12 AM"
+            }
             what={render || ""}
             diff={diff || 0}
             onClick={resetState}

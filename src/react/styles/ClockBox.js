@@ -6,7 +6,7 @@ const Container = styled.div`
   margin-top: 4rem;
   box-shadow: ${props => props.theme["box-shadow"]};
   border-radius: ${props => props.theme["border-radius"]};
-  min-width: ${props => props.mobile ? '300px' : '350px'};
+  min-width: ${props => (props.mobile ? "300px" : "350px")};
   text-align: center;
   position: relative;
 `;
@@ -15,15 +15,17 @@ const TopBox = styled.div`
   background: ${props => props.theme.color};
   border-radius: ${props => props.theme["border-radius"]}
     ${props => props.theme["border-radius"]} 0 0;
-  padding: ${props => props.mobile ? '10px' : '20px'};
+  padding: ${props => (props.mobile ? "10px" : "20px")};
   margin-bottom: 0;
 `;
 const BottomBox = styled.div`
   margin-top: 0;
-  padding: ${props => props.mobile ? '30px' : '40px'};
+  padding: ${props => (props.mobile ? "30px" : "40px")};
   background: #ffffff;
   border-radius: 0 0 26px 26px;
-  ${props => props.mobile && `
+  ${props =>
+    props.mobile &&
+    `
     h1 {
       margin-bottom: 20px;
     }
@@ -40,7 +42,7 @@ const Title = styled.h1`
   line-height: 39px;
   text-transform: uppercase;
   line-height: 47px;
-  ${props => props.mobile && 'margin: 20px 0'};
+  ${props => props.mobile && "margin: 20px 0"};
   margin-bottom: 0.5rem;
 `;
 
@@ -73,8 +75,8 @@ const Shadow = styled.div`
   left: -50px;
   top: 50px;
   z-index: -1;
-  min-width: ${props => props.mobile ? '300px' : '350px'};
-  min-height: ${props => props.mobile ? '500px' : '600px'};
+  min-width: ${props => (props.mobile ? "300px" : "350px")};
+  min-height: ${props => (props.mobile ? "500px" : "600px")};
 `;
 
 const backColor = "white";
@@ -119,7 +121,7 @@ const ClockBox = ({ citystate, hour, what, sunset, onClick, mobile }) => (
           {what} is at {sunset}!
         </TimeLeft>
       </BottomBox>
-      <Shadow mobile={mobile}/>
+      <Shadow mobile={mobile} />
     </Container>
   </>
 );

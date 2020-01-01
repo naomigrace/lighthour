@@ -1,8 +1,10 @@
+import { backgroundColor } from "../../shared/index";
+
 const midmorning = {
-  color: "#79B0F4",
+  color: backgroundColor,
   "background-image":
     "linear-gradient(180deg, rgba(209, 232, 255, 0.95) 37%, rgba(124, 222, 255, 0.3) 72%, rgba(121, 174, 244, 0.05) 100%)",
-  "background-color": "#79B0F4",
+  "background-color": backgroundColor,
   "box-shadow": "0 2px 4px 0 rgba(0,0,0,0.14)",
   "border-radius": "26px",
   shadow: "#0000001a"

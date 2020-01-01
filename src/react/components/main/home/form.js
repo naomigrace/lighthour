@@ -15,7 +15,7 @@ import {
 
 const localState = "Form";
 
-const Form = (props) => {
+const Form = props => {
   const handleSubmit = event => {
     const { state, updateState } = props;
     event && event.preventDefault();
@@ -38,7 +38,7 @@ const Form = (props) => {
 
   return (
     <SearchContainer onSubmit={handleSubmit}>
-      <TimeLabel searchbox={true}/>
+      <TimeLabel searchbox={true} />
       <Input
         {...input}
         placeholder={isMobile ? "Where ya chasin?" : input.placeholder}
@@ -54,10 +54,16 @@ const Form = (props) => {
         }
       />
       <Button type="submit" mobile={isMobile}>
-        {loading ? <Spinner /> : isMobile ? <Search style={{marginTop: '-5px'}}/> : name.toUpperCase()}
+        {loading ? (
+          <Spinner />
+        ) : isMobile ? (
+          <Search style={{ marginTop: "-5px" }} />
+        ) : (
+          name.toUpperCase()
+        )}
       </Button>
       {error && <Alert>{`No location found for: ${search_term}`}</Alert>}
-      <Shadow mobile={isMobile}/>
+      <Shadow mobile={isMobile} />
     </SearchContainer>
   );
 };
