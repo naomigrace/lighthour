@@ -1,6 +1,6 @@
 const merge = require("webpack-merge");
 
-const common = require("./common");
+const common = require("./common/index");
 const shared = require("../shared/index");
 
 const toDist = shared["path"]["toDist"];

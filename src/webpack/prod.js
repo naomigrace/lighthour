@@ -4,7 +4,7 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 
-const common = require("./common.js");
+const common = require("./common/index");
 const shared = require("../shared/index");
 
 module.exports = merge(common(true), {
