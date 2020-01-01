@@ -17,7 +17,7 @@ module.exports = {
   name: "lighthour",
   author: "Naomi-Grace Cosio Panlaqui & Nameer Rizvi",
   description:
-    "A simple utility for people to find out what time the next golden hour is.",
+    "A simple utility for people to find out when the next golden hour is.",
   themeColor: "#FFFFFF",
   backgroundColor: "#79B0F4",
   eslint,
