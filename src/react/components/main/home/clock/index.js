@@ -31,7 +31,7 @@ export default function Clock({ data, setTheme, resetState }) {
           <ClockBox
             citystate={`${city}, ${state}`}
             sunset={`${hour}:${minute} ${meridiem}` || "12 AM"}
-            hour={`${render == "sunset" ? hour - 1 : hour + 1}:${minute} ${meridiem}` || "12 AM"}
+            hour={`${render == "sunset" ? hour - 1 : hour}:${minute} ${meridiem}` || "12 AM"}
             what={render || ""}
             diff={diff || 0}
             onClick={resetState}
